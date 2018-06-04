@@ -31,25 +31,22 @@ aug = ImageDataGenerator(rotation_range=30, width_shift_range=0.1,
 	height_shift_range=0.1, shear_range=0.2, zoom_range=0.2,
 	horizontal_flip=True, fill_mode="nearest")
 
-# grab the list of images that we'll be describing, then extract
+# grab the list of images, then extract
 # the class label names from the image paths
 print("[INFO] loading images...")
 p = Path(args["dataset"])
-print(p)
 imagePaths = list(p.glob('./**/*.jpg'))
 imagePaths = [str(names) for names in imagePaths]
-print(imagePaths[1])
-#imagePaths = list(paths.list_images(args["dataset"]))
 classNames=[os.path.split(os.path.split((names))[0])[1] for names in imagePaths]
-#classNames = [path.split(os.path.sep)[-2] for path in imagePaths]
 classNames = [str(x) for x in np.unique(classNames)]
+
 # initialize the image preprocessors
-aap = SimplePreprocessor(224, 224)
+sp = SimplePreprocessor(224, 224)
 iap = ImageToArrayPreprocessor()
 
 # load the dataset from disk then scale the raw pixel intensities to
 # the range [0, 1]
-sdl = SimpleDatasetLoader(preprocessors=[aap, iap])
+sdl = SimpleDatasetLoader(preprocessors=[sp, iap])
 (data, labels) = sdl.load(imagePaths, verbose=500)
 data = data.astype("float") / 255.0
 
