@@ -20,4 +20,12 @@ This summary is only useful if you are familiar with theory of CNN's. Check out 
 - One can determine the batch size, epochs for warm-up phase, epochs for final phase, the layers of CNN's body to be unfreezed in conf/myConfig.py. 
 
 ## Commands
+``` shell
+$ python finetune.py --dataset flowers17/ --model myModel.model 
+```
+- **--dataset**: Path to dataset on which you want to learn
+- **--model**: Path to save new fine-tuned CNN model
+
+## Results
+![test](./images/fullFineDiagram.png)
 
