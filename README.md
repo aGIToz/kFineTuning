@@ -27,5 +27,5 @@ $ python finetune.py --dataset flowers17/ --model myModel.model
 - **--model**: Path to save new fine-tuned CNN model
 
 ## Results
-![test](./images/fullFineDiagram.png)
+![alt text](warmUpAcc.png)
 
