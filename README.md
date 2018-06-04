@@ -16,7 +16,7 @@ From my observation this technique is often exploted in medical imaging. Finetun
 This summary is only useful if you are familiar with theory of CNN's. Check out these two excellent tutorial if you are a complete beginner 1.[Kera's official](https://blog.keras.io/building-powerful-image-classification-models-using-very-little-data.html) and 2.[P jay's blog on medium](https://medium.com/@14prakash/transfer-learning-using-keras-d804b2e04ef8)
 
 ## Key params
-- This project is useful if one has a labeled dataset(doesn't matter what so ever) of the order of at least 1k(1360 images in present case) and  one needs a CNN classfier for prediction on new smaples. Just replace the flowers17 dataset with your dataset. Make sure that path of an image in your dataset is like this, ***yourDataset/Class1/image_x, yourDataset/Class2/image_y*** etc.
+- This project is useful if one has a labeled dataset(doesn't matter what so ever) of the order of at least 1k and  one needs a CNN classfier for prediction on new smaples. Just replace the flowers17 dataset with your dataset. Make sure that path of an image in your dataset is like this, ***yourDataset/Class1/image_x, yourDataset/Class2/image_y*** etc.
 - One can determine the batch size, epochs for warm-up phase, epochs for final phase, the layers of CNN's body to be unfreezed after warm-up phase in ***conf/myConfig.py***. 
 
 ## Commands
@@ -34,7 +34,7 @@ Figure below shows the valdiation accuracy by the end of warm-up phase consist o
 ![warmUpAcc](./images/warmUpAcc.png)
 Figure below shows the valdiation accuracy by the end of final phase consist of 100 epochs and unfreezing the conv layers 15 onwards was 95.59%.
 ![fullFineTuningAcc](./images/fullFineTuningAcc.png)
-Below is sklearn classification report for warm-up phase(left) and final phase(right) for 17 classes showing the following:
+Below is sklearn classification report after the warm-up phase(left) and final phase(right) for 17 classes showing the following:
 - **precision**: The intuitively the ability of the classifier not to label as positive a sample that is negative.
 - **recall**:  The intuitively the ability of the classifier to find all the positive samples.
 - **support**:The support is the number of occurrences of each class in y_true.
