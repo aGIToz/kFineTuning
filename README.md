@@ -26,9 +26,19 @@ $ python finetune.py --dataset flowers17/ --model myModel.model
 - **--dataset**: Path to dataset on which you want to learn
 - **--model**: Path to save new fine-tuned CNN model
 
+## Environment
+python3, sk-learn0.19, keras2.1 and opencv3 were  used for development on nvidia-GTX 1080
+
 ## Results
+Figure below shows the valdiation accuracy by the end of warm-up phase consist of 25 epochs was 82.35%
 ![warmUpAcc](./images/warmUpAcc.png)
+Figure below shows the valdiation accuracy by the end of final phase consist of 100 epochs and unfreezing the conv layers 15 onwards was 95.59%
 ![fullFineTuningAcc](./images/fullFineTuningAcc.png)
+Below is sklearn classification report for warm-up phase(left) and final phase(right) for 17 classes showing the following:
+- **precision**: The intuitively the ability of the classifier not to label as positive a sample that is negative.
+- **recall**:  The intuitively the ability of the classifier to find all the positive samples.
+- **support**:The support is the number of occurrences of each class in y_true.
+
 ![warmUp](./images/warmUp.png)
 ![fullFineTuning](./images/fullFineTuning.png)
 
